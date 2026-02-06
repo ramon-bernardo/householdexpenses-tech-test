@@ -20,9 +20,9 @@ public sealed class CategoryController(ISender sender) : Controller
     }
 
     [HttpGet]
-    public async Task<IActionResult> FindAll()
+    public async Task<IActionResult> Get()
     {
-        var categories = await Sender.Send(new GetAllCategoryQuery());
+        var categories = await Sender.Send(new GetCategoriesQuery());
         return Ok(categories);
     }
 

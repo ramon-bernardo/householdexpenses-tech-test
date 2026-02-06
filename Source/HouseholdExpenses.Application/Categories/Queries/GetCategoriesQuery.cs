@@ -3,4 +3,4 @@ using HouseholdExpenses.Application.Categories.DTOs;
 
 namespace HouseholdExpenses.Application.Categories.Queries;
 
-public sealed record GetAllCategoryQuery : IRequest<IEnumerable<CategoryDTO>> { }
+public sealed record GetCategoriesQuery : IRequest<IEnumerable<CategoryDTO>> { }
