@@ -7,6 +7,8 @@ public sealed class CreatePeopleCommandValidator : AbstractValidator<CreatePeopl
 {
     public CreatePeopleCommandValidator()
     {
-        RuleFor(x => x.Name).NotEmpty().MaximumLength(200);
+        RuleFor(x => x.Name)
+            .NotEmpty().WithMessage("Name is required.")
+            .MaximumLength(200).WithMessage("Name max length is 200.");
     }
 }

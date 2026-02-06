@@ -7,6 +7,8 @@ public sealed class DeletePeopleCommandValidator : AbstractValidator<DeletePeopl
 {
     public DeletePeopleCommandValidator()
     {
-        RuleFor(x => x.Id).NotEmpty();
+        RuleFor(x => x.Id)
+            .GreaterThan(0u)
+            .WithMessage("Id must be greater than 0.");
     }
 }
