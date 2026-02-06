@@ -9,11 +9,10 @@ public sealed class PersonProfile : Profile
     public PersonProfile()
     {
         CreateMap<People, PeopleModel>();
-
         CreateMap<PeopleModel, People>()
-            .ConstructUsing((dataModel, context) =>
+            .ConstructUsing((model, context) =>
             {
-                return People.Create(dataModel.Name, dataModel.Age);
+                return People.Create(model.Name, model.Age);
             });
     }
 }
