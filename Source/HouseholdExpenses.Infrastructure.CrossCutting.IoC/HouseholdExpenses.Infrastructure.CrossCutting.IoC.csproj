@@ -7,4 +7,12 @@
     <Platforms>x64</Platforms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Person\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HouseholdExpenses.Application\HouseholdExpenses.Application.csproj" />
+  </ItemGroup>
+
 </Project>
