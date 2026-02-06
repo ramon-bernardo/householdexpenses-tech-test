@@ -9,21 +9,29 @@ public sealed class SqliteDbContext(DbContextOptions<SqliteDbContext> options) :
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<PeopleModel>(entity =>
+        modelBuilder.Entity<PeopleModel>((entity) =>
         {
-            entity.HasKey(p => p.Id);
+            entity.HasKey(model => model.Id);
 
-            entity.Property(p => p.Id)
-                  .HasConversion<long>()
-                  .ValueGeneratedOnAdd();
+            entity.Property(model => model.Id)
+                .HasConversion<long>()
+                .ValueGeneratedOnAdd();
 
-            entity.Property(p => p.Age)
-                  .HasConversion<long>();
+            entity.Property(model => model.Name)
+                .IsRequired()
+                .HasMaxLength(200);
 
-            entity.HasQueryFilter(p => !p.Deleted);
+            entity.Property(model => model.Age)
+                .IsRequired()
+                .HasConversion<long>();
 
-            entity.HasIndex(p => p.Deleted)
-                  .HasDatabaseName("IX_people_deleted");
+            entity.Property(model => model.Deleted)
+                .HasDefaultValue(false);
+
+            entity.HasQueryFilter(model => !model.Deleted);
+
+            entity.HasIndex(model => model.Deleted)
+                .HasDatabaseName("IX_people_deleted");
         });
     }
 }
