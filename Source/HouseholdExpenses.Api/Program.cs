@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using HouseholdExpenses.Application;
 using HouseholdExpenses.Infrastructure.Data;
 
@@ -10,7 +11,13 @@ public class Program
         // Web Application
         var builder = WebApplication.CreateBuilder(args);
         builder.Services.AddOpenApi();
-        builder.Services.AddControllers();
+
+        builder.Services
+            .AddControllers()
+            .AddJsonOptions((options) =>
+            {
+                options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+            });
 
         builder.Services.AddApplication();
         builder.Services.AddInfrastructure(builder.Configuration);

@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
-using HouseholdExpenses.Application.Person;
 using Microsoft.Extensions.DependencyInjection;
+using HouseholdExpenses.Application.Categories;
+using HouseholdExpenses.Application.Person;
 
 namespace HouseholdExpenses.Application;
 
@@ -10,6 +11,7 @@ public static class Bootstrap
     {
         services.AddAutoMapper((configuration) =>
         {
+            configuration.AddProfile<CategoriesProfile>();
             configuration.AddProfile<PersonProfile>();
         });
 
