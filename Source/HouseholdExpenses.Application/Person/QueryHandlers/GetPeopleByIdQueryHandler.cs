@@ -6,7 +6,7 @@ using HouseholdExpenses.Application.Person.Repositories;
 
 namespace HouseholdExpenses.Application.Person.QueryHandlers;
 
-public sealed class GetByIdQueryHandler(
+public sealed class GetPeopleByIdQueryHandler(
     IPeopleRepository peopleRepository,
     IMapper mapper
 ) : IRequestHandler<GetPeopleByIdQuery, PeopleDTO?>
