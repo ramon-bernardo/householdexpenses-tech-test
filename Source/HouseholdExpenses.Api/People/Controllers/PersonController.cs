@@ -35,9 +35,9 @@ public sealed class PersonController(ISender sender) : Controller
     }
 
     [HttpGet]
-    public async Task<IActionResult> FindAll()
+    public async Task<IActionResult> Get()
     {
-        var people = await Sender.Send(new GetAllPersonQuery());
+        var people = await Sender.Send(new GetPeopleQuery());
         return Ok(people);
     }
 
