@@ -7,8 +7,4 @@
     <Platforms>x64</Platforms>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Ardalis.SmartEnum" Version="8.2.0" />
-  </ItemGroup>
-
 </Project>
