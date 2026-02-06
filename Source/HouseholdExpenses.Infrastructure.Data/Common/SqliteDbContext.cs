@@ -1,18 +1,18 @@
-﻿using HouseholdExpenses.Infrastructure.Data.Categories.Models;
-using HouseholdExpenses.Infrastructure.Data.Person.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using HouseholdExpenses.Infrastructure.Data.Categories.Models;
+using HouseholdExpenses.Infrastructure.Data.People.Models;
 
 namespace HouseholdExpenses.Infrastructure.Data.Common;
 
 public sealed class SqliteDbContext(DbContextOptions<SqliteDbContext> options) : DbContext(options)
 {
-    public DbSet<PeopleModel> Person { get; init; }
+    public DbSet<PersonModel> People { get; init; }
 
     public DbSet<CategoryModel> Categories { get; init; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<PeopleModel>((entity) =>
+        modelBuilder.Entity<PersonModel>((entity) =>
         {
             entity.HasKey(model => model.Id);
 

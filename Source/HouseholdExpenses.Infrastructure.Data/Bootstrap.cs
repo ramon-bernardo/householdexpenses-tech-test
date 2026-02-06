@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using HouseholdExpenses.Infrastructure.Data.Common;
-using HouseholdExpenses.Infrastructure.Data.Person;
+using HouseholdExpenses.Infrastructure.Data.People;
 using HouseholdExpenses.Infrastructure.Data.Categories;
 
 namespace HouseholdExpenses.Infrastructure.Data;
@@ -40,7 +40,7 @@ public static class Bootstrap
 
         services
             .AddCategoriesInfrastructure()
-            .AddPersonInfrastructure();
+            .AddPeopleInfrastructure();
 
         return services;
     }
