@@ -6,7 +6,7 @@ namespace HouseholdExpenses.Infrastructure.Data.Common;
 
 public sealed class SqliteDbContext(DbContextOptions<SqliteDbContext> options) : DbContext(options)
 {
-    public DbSet<PeopleModel> Peoples { get; init; }
+    public DbSet<PeopleModel> Person { get; init; }
 
     public DbSet<CategoryModel> Categories { get; init; }
 

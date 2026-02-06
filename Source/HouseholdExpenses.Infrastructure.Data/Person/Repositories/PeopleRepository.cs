@@ -32,7 +32,7 @@ public sealed class PeopleRepository(
 
     public async Task<People?> GetActiveById(uint id)
     {
-        var peopleModel = await DbContext.Peoples
+        var peopleModel = await DbContext.Person
             .Where((people) => people.Id == id)
             .AsNoTracking()
             .FirstOrDefaultAsync();
@@ -42,7 +42,7 @@ public sealed class PeopleRepository(
 
     public async Task<IReadOnlyCollection<People>> GetAllActive()
     {
-        var peopleModels = await DbContext.Peoples
+        var peopleModels = await DbContext.Person
             .AsNoTracking()
             .ToListAsync();
 
